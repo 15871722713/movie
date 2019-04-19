@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>spider</title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/bootstrap.min.css">
+
+	<script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.btn').click(function(){
+				spider('1');
+			});
+		});
+
+		function spider(idx) {
+			$.ajax({
+				url:'/mainspider?id='+idx,
+				async:'true',
+				type:'get',
+				success:function(data){
+					if (data != 'None') {
+
+						$('#movietable').html(data);
+						var id = parseInt(idx);
+						id ++;
+						spider(id);
+					}
+				}
+			})
+		}
+
+	</script>
+</head>
+<body>
+<div class="container">
+	<div>
+		<button type="button" class="btn btn-primary">开始采集</button>
+		<table class="table table-hover" id="movietable">
+			<thead>
+				<tr>
+					<th>name</th>
+					<th>type</th>
+					<th>year</th>
+					<th>adddate</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- {% if data %} -->
+				{% for x in data %}
+				<tr>
+					<td>{{x.vod_name}}</td>
+					<td>{{x.list_name}}</td>
+					<td>{{x.vod_year}}</td>
+					<!-- <td>{{x.vod_addtime}}</td> -->
+					<td>aaa</td>
+				</tr>
+				{% endfor %}
+				<!-- {% endif %} -->
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

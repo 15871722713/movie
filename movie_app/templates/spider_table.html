@@ -1,0 +1,20 @@
+<p class="pageindex">{{page.pageindex}}</p>
+<p class="pagecount">{{page.pagecount}}</p>
+<thead>
+	<tr>
+		<th>name</th>
+		<th>type</th>
+		<th>year</th>
+		<th>adddate</th>
+	</tr>
+</thead>
+<tbody>
+	{% for x in data %}
+	<tr>
+		<td>{{x.vod_name}}</td>
+		<td>{{x.list_name}}</td>
+		<td>{{x.vod_year}}</td>
+		<td>{{x.vod_addtime}}</td>
+	</tr>
+	{% endfor %}
+</tbody>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/bootstrap.min.css">
+
+	<script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/bootstrap/bootstrap.min.js"></script>
+	<style type="text/css">
+		img{display: block;width: 100%;height: 80%}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+		<a class="navbar-brand" href="#">logo</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link active" href="/main">首页</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/dy/0" id="navbardrop" data-toggle="dropdown">电影</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/dy/1">动作片</a>
+						<a class="dropdown-item" href="/dy/2">爱情片</a>
+						<a class="dropdown-item" href="/dy/3">喜剧片</a>
+						<a class="dropdown-item" href="/dy/4">科幻片</a>
+						<a class="dropdown-item" href="/dy/5">恐怖片</a>
+						<a class="dropdown-item" href="/dy/6">剧情片</a>
+						<a class="dropdown-item" href="/dy/7">战争片</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/ds/0" id="navbardrop" data-toggle="dropdown">电视</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/ds/1">韩剧</a>
+						<a class="dropdown-item" href="/ds/2">泰剧</a>
+						<a class="dropdown-item" href="/ds/3">日本剧</a>
+						<a class="dropdown-item" href="/ds/4">欧美剧</a>
+						<a class="dropdown-item" href="/ds/5">国产剧</a>
+						<a class="dropdown-item" href="/ds/6">香港剧</a>
+						<a class="dropdown-item" href="/ds/7">台湾剧</a>
+					</div>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/dm/0">动漫</a></li>
+				<li class="nav-item"><a class="nav-link" href="/zy/0">综艺</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<br>
+	<h4>最新</h4>
+	<div class="row">
+		{% for movie in movie01 %}
+		<div class="col-sm-3">
+			<a href="/movie/{{movie.id}}">
+				<img class="img-responsive" src="{{movie.vod_pic}}">
+				<span class="name"><p>{{movie.vod_name}}</p></span>
+				<p class="des"><i>{{movie.vod_continu}}</i></p>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	<h4>电影</h4>
+	<div class="row">
+		{% for movie in movie02 %}
+		<div class="col-sm-3">
+			<a href="/movie/{{movie.id}}">
+				<img src="{{movie.vod_pic}}">
+				<span class="name"><p>{{movie.vod_name}}</p></span>
+				<p class="des"><i>{{movie.vod_continu}}</i></p>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	<h4>电视</h4>
+	<div class="row">
+		{% for movie in movie03 %}
+		<div class="col-sm-3">
+			<a href="/movie/{{movie.id}}">
+				<img src="{{movie.vod_pic}}">
+				<span class="name"><p>{{movie.vod_name}}</p></span>
+				<p class="des"><i>{{movie.vod_continu}}</i></p>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	<h4>动漫</h4>
+	<div class="row">
+		{% for movie in movie04 %}
+		<div class="col-sm-3">
+			<a href="/movie/{{movie.id}}">
+				<img src="{{movie.vod_pic}}">
+				<span class="name"><p>{{movie.vod_name}}</p></span>
+				<p class="des"><i>{{movie.vod_continu}}</i></p>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	<h4>综艺</h4>
+	<div class="row">
+		{% for movie in movie05 %}
+		<div class="col-sm-3">
+			<a href="/movie/{{movie.id}}">
+				<img src="{{movie.vod_pic}}">
+				<span class="name"><p>{{movie.vod_name}}</p></span>
+				<p class="des"><i>{{movie.vod_continu}}</i></p>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	</div>
+
+</body>
+</html>

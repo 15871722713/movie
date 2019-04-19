@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>正在播放•{{movie.vod_name}}</title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/bootstrap.min.css">
+
+	<script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/bootstrap/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+	<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+		<a class="navbar-brand" href="#">logo</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link active" href="/main">首页</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/dy/0" id="navbardrop" data-toggle="dropdown">电影</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/dy/1">动作片</a>
+						<a class="dropdown-item" href="/dy/2">爱情片</a>
+						<a class="dropdown-item" href="/dy/3">喜剧片</a>
+						<a class="dropdown-item" href="/dy/4">科幻片</a>
+						<a class="dropdown-item" href="/dy/5">恐怖片</a>
+						<a class="dropdown-item" href="/dy/6">剧情片</a>
+						<a class="dropdown-item" href="/dy/7">战争片</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/ds/0" id="navbardrop" data-toggle="dropdown">电视</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/ds/1">韩剧</a>
+						<a class="dropdown-item" href="/ds/2">泰剧</a>
+						<a class="dropdown-item" href="/ds/3">日本剧</a>
+						<a class="dropdown-item" href="/ds/4">欧美剧</a>
+						<a class="dropdown-item" href="/ds/5">国产剧</a>
+						<a class="dropdown-item" href="/ds/6">香港剧</a>
+						<a class="dropdown-item" href="/ds/7">台湾剧</a>
+					</div>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/dm/0">动漫</a></li>
+				<li class="nav-item"><a class="nav-link" href="/zy/0">综艺</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<br>
+	<div>
+		<h1 style="width:600px;height:40px;text-align:center;margin:auto">正在播放•{{movie.vod_name}}</h1>
+		<div style="width:700px;margin:10px;">
+			<div id="video" style="width: 600px; height: 400px;float: left"></div>
+		</div>
+	</div>
+	<div>
+		<p>线路一</p>
+		{% for data in movie.vod_url.dbm3u8 %}
+		<a href="">{{data.title}}</a>
+		{% endfor %}
+
+		<p>线路二</p>
+		{% for data in movie.vod_url.dbyun %}
+		<a href="">{{data.title}}</a>
+		{% endfor %}
+	</div>
+	<script type="text/javascript" src="/static/ckplayer/ckplayer.js"></script>
+	<script type="text/javascript">
+		var videoObject = {
+			container: '#video', //容器的ID或className
+			variable: 'player',//播放函数名称
+			flashplayer:true,//强制使用flashplayer播放
+			video: '{{movie.vod_language}}'
+		};
+		var player = new ckplayer(videoObject);
+	</script>
+	</div>
+
+</body>
+</html>
