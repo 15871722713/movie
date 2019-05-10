@@ -95,7 +95,7 @@ def movie_detail(request,id):
 	data_dbyun = []
 	data_dbm3u8 = []
 
-	print 'list_name',movie.list_name
+	# print 'list_name',movie.list_name
 	if movie.list_name.endswith('剧'):
 		print 'dianshiju'
 		print 'url',movie.vod_url
@@ -135,7 +135,7 @@ def movie_detail(request,id):
 			data_dbm3u8.append({'title':b[0],'url':b[1]})
 			movie_datas['dbyun'] = data_dbyun
 			movie_datas['dbm3u8'] = data_dbm3u8
-	print 'movie.data:',movie_datas
+	# print 'movie.data:',movie_datas
 	movie.vod_url = movie_datas
 	movie.vod_language = movie_datas['dbm3u8'][0]['url']
 	return render(request,'movie_detail.html',{"movie":movie})

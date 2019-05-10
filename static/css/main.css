@@ -1,0 +1,4 @@
+
+.pages ul li{display: inline;height: 40px;}
+.pages ul li a{display: inline-block;padding: 0 20px;height: 40px;line-height: 40px;color: #024791;border: solid 1px #E1E1E1;}
+.pages #active{background: #024791;color: white;}
